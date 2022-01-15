@@ -1,0 +1,1040 @@
+<style>
+    .text-divided-check{
+        margin-top: 0px
+    }
+    .sheet-modal.modal-in{
+        height: 80%;
+    }
+    .container-check{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: center;
+        margin-top: 6px;
+        margin-bottom: 10px;
+    }
+    .text-check{
+        padding-top: 4px;
+        margin: 0;
+        line-height: 17px;
+        padding-right: 16px;
+        height: auto;
+        margin-top: 8px;
+    }
+    .container-check1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: center;
+        margin-top: 20px;
+        margin-bottom: 6px;
+    }
+    .select-check1{
+        width: 126px !important;
+        padding-left: 3px;
+        font-size: 15px !important;
+        height: 37 px !important;
+        font-family: 'ITC Avant Garde Gothic', sans-serif;
+        background-color: white !important;
+        border: 1px solid gray;
+        border-radius: 8px;
+        margin-bottom: 0px;
+    }
+    .hr{
+        color: white;
+        width: 100%;
+        border-bottom: 2px solid steelblue;
+        box-shadow: none;
+        margin-top: -40px;
+        margin-bottom: 25px;
+    }
+    input[type=checkbox]{
+        transform: scale(1.5);
+        margin-right: 10px;
+    }
+    </style>
+    <template>
+        <div class="view view-main view-init safe-areas">
+            <div class="page" id="FWM-1">
+                <!-- Navbar -->
+                <div class="navbar" style="background-color: #063E7F;height: 52px;">
+                    <div style="text-align: center;"><img src="img/logo-FWM.png" style="margin-top: 5px;" height="41.38px" alt="Logo Field"></div>
+                    <div class="navbar-inner sliding" style="height: 52px;">
+                        <div class="left">
+                            <a href="#" onclick="regresarRecorridoServInd3();">
+                                <span class="nav-text-regresar" id="nav-text-regresar-function">Regresar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contenido Formulario -->                                
+                <div class="page-content">
+     
+                    <div style="text-align: center; justify-content:center; margin-right:auto; margin-left:auto; width: 99%;margin-top: 30px;">
+                        <h2 class="FWN-titulo-2">Revisión de Elementos Eléctricos</h2>
+                        <div style="text-align: left;">    
+                            <form class="list FWM-fixing-form">
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check" style="margin-top: 10px;"><b>Motor Turbina/Driver 1</b></span>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">RPM. Max.</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-15-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-15-1" name="Punto-15-1" class="select-check1" style="width: 30%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">RPM. Min.</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-15-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-15-2" name="Punto-15-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-15-3" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-15-3" name="Punto-15-3" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-15-4" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-15-4" name="Punto-15-4" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Motor Turbina/Driver 2</span>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">RPM. Max.</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-17-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-17-1" name="Punto-17-1" class="select-check1" style="width: 30%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">RPM. Min.</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-17-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-17-2" name="Punto-17-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-17-3" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-17-3" name="Punto-17-3" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-17-4" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-17-4" name="Punto-17-4" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Motor Turbina/Driver 3</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">RPM. Max.</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-18-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-18-1" name="Punto-18-1" class="select-check1" style="width: 30%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">RPM. Min.</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-18-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-18-2" name="Punto-18-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-18-3" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-18-3" name="Punto-18-3" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-18-4" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-18-4" name="Punto-18-4" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Ventilador Enfriamiento 1</span>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-19-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-19-1" name="Punto-19-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-19-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-19-2" name="Punto-19-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Ventilador Enfriamiento 2</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-20-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-20-1" name="Punto-20-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-20-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-20-2" name="Punto-20-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <hr class="hr">
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Resistencia Cabina</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-21-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-21-1" name="Punto-21-1" class="select-check1" style="width: 30%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp 1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-21-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-21-2" name="Punto-21-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp 2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-21-3" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-21-3" name="Punto-21-3" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp 3</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-21-4" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-21-4" name="Punto-21-4" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Resistencia Caldera</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-22-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-22-1" name="Punto-22-1" class="select-check1" style="width: 30%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp 1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-22-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-22-2" name="Punto-22-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp 2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-22-3" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-22-3" name="Punto-22-3" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp 3</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-22-4" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-22-4" name="Punto-22-4" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <hr class="hr">
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Blower 1</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-23-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-23-1" name="Punto-23-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-23-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-23-2" name="Punto-23-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Blower 2</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-24-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-24-1" name="Punto-24-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-24-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-24-2" name="Punto-24-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Blower 3</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-25-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-25-1" name="Punto-25-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-25-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-25-2" name="Punto-25-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Bomba M4 SC</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-26-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-26-1" name="Punto-26-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-26-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-26-2" name="Punto-26-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Bomba M5 D</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-27-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-27-1" name="Punto-27-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-27-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-27-2" name="Punto-27-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Bomba M17 R/M7</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-28-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-28-1" name="Punto-28-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-28-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-28-2" name="Punto-28-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Bomba M18 CC/M12</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-29-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-29-1" name="Punto-29-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-29-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-29-2" name="Punto-29-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Solenoide Y1 GV</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-30-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-30-1" name="Punto-30-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-30-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-30-2" name="Punto-30-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Solenoide Y2 CC</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-31-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-31-1" name="Punto-31-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-31-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-31-2" name="Punto-31-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Solenoide Y3 M</span>                                    
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-32-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-32-1" name="Punto-32-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-32-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-32-2" name="Punto-32-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Solenoide Y4 CC</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-33-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-33-1" name="Punto-33-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-33-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-33-2" name="Punto-33-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Solenoide Y14 L</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-34-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-34-1" name="Punto-34-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amperaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-34-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-34-2" name="Punto-34-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Válvula de Clima</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 22%; padding-top: 8px;">Tiempo 1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-35-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 12%; padding-top: 8px;">Seg.</label>
+                                    <select id="Punto-35-1" name="Punto-35-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 22%; padding-top: 8px;">Tiempo 2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-35-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 12%; padding-top: 8px;">Seg.</label>
+                                    <select id="Punto-35-2" name="Punto-35-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Válvula de Clima Y5</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-36-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-36-1" name="Punto-36-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Válvula de Clima Y15</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Voltaje</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-37-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-37-1" name="Punto-37-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Válvula de desagüe</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 22%; padding-top: 8px;">Tiempo 1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-38-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 12%; padding-top: 8px;">Seg.</label>
+                                    <select id="Punto-38-1" name="Punto-38-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 22%; padding-top: 8px;">Tiempo 2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-38-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 12%; padding-top: 8px;">Seg.</label>
+                                    <select id="Punto-38-2" name="Punto-38-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                
+                                <hr class="hr">
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Contactores Amperaje de Entrada</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Linea 1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-39-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-39-1" name="Punto-39-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Linea 2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-39-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-39-2" name="Punto-39-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Linea 3</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-39-3" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-39-3" name="Punto-39-3" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Contactores Amperaje de Salida</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Linea 1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-40-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-40-1" name="Punto-40-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Linea 2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-40-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-40-2" name="Punto-40-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Linea 3</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-40-3" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-40-3" name="Punto-40-3" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <hr class="hr">
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Reelevadores de Estado sólido</span>
+                                </div>
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">En funcionamiento</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp. A1/B1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-41-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-41-1" name="Punto-41-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp. A2/B2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-41-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-41-2" name="Punto-41-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check1">
+                                    <span class="span FWM-span-form text-check">Sin funcionamiento</span>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp. A1/B1</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-42-1" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-42-1" name="Punto-42-1" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;margin-bottom: 15px;">
+                                    <label class="text-divided-check" style="width: 5%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 30%; padding-top: 8px;">Amp. A2/B2</label>
+                                    <label class="text-divided-check" style="width: 30%;"><input type="text" id="input-42-2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <select id="Punto-42-2" name="Punto-42-2" class="select-check1" style="width: 33%;" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div style="display: flex; margin-bottom: 30px;">
+                                    <label style="font-size: 18px;font-family: 'ITC Avant Garde Gothic', sans-serif;font-weight: bold;color: gray;"><input type="checkbox" id="cotizacion-1" value="1" >Trasnsformadores</label>
+                                </div>
+
+                                <div style="display: flex; margin-bottom: 30px;">
+                                    <label style="font-size: 18px;font-family: 'ITC Avant Garde Gothic', sans-serif;font-weight: bold;color: gray;"><input type="checkbox" id="cotizacion-2" value="2" >Revisión de fusibles de control</label>
+                                </div>
+                            </form>
+    
+                            <div class="block-title FWM-subtitulo">Evidencias:</div>  
+                            
+                            <div class="card data-table">
+                                <div class="infinite-scroll-content">
+                                    <table id="tabla_diagnostico">
+                                        <thead>
+                                            <tr>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Accion</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Foto</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="sentencia preloader color-grey infinite-scroll-preloader"></div>
+                                    <div id="message-nr" style="width: 100%;text-align: center;font-family: 'ITC Avant Garde Gothic', sans-serif;font-size: 16px;" style="display: none;">
+                                        <p>Sin registros</p>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    <div style="display: flex;flex-direction: row;justify-content: space-between; margin-top: 120px; margin-bottom: 20px;">
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ21/', {force: true, ignoreCache: true, reload: true});">Anterior</button>
+                        <a href="#" class="buble-float link popover-open" data-popover=".popover-links" style="background:cadetblue; width: 20%;">
+                            <i class="material-icons md-light" style="color: #ffffff;font-size: 35px;">book</i>
+                        </a>
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ23/', {force: true, ignoreCache: true, reload: true});">Siguiente</button>
+                    </div>
+    
+                    <div class="popover popover-links">
+                        <div class="popover-inner">
+                            <div class="list">
+                            <ul>
+                                <li><a class="list-button item-link popover-close" onclick="showTPM()">TPM</a></li>
+                                <li><a class="list-button item-link popover-close" onclick="showManual()">Manual</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Fin contenido formulario -->
+                    <fwm></fwm>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        return {
+            on: {
+                pageInit: function (e, page) {
+                    $('.preloader').remove();
+                    $('.infinite-scroll-preloader').remove();
+    
+                }
+            }  
+        }
+    </script>

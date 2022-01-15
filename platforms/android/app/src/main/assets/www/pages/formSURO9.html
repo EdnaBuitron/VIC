@@ -1,0 +1,72 @@
+<template>
+    <div class="page" style="background-color: rgb(245, 245, 245);">
+        <div class="navbar" style="background-color: #063E7F;height: 52px;">
+            <div style="text-align: center;"><img src="img/logo-FWM.png" style="margin-top: 5px;" height="41.38px" alt="Logo Field"></div>
+            <div class="navbar-inner sliding" style="height: 52px;">
+                <div class="left">
+                    <a href="#" onclick="regresarRecorridoSURO5();">
+                        <span class="nav-text-regresar" id="nav-text-regresar-function">Regresar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+            <!-- Contenido Formulario --> 
+            <div class="page-content">
+                <div style="text-align: center; justify-content:center; margin-right:auto; margin-left:auto; width: 99%;margin-top: 30px;">
+                    <h2 class="FWN-titulo-2">Seguimiento</h2>
+                    <div style="text-align: left;">
+                        <form class="list FWM-fixing-form">
+                        
+                           <span class="span FWM-span-form" style="font-weight: bold; line-height: 105%; margin-bottom: 3px;">Comentario:</span>
+                           <br>
+                           <input type="text" class="FWM-input" id="p1" name="p1" style="background-color: white;" onchange="inputLleno(this.id,this.value)"/>
+
+                            <span class="span FWM-span-form">Foto:</span>                          
+                            <div class="FWM-photo-container">
+                                <div class="border-capture">
+                                        <a onclick="capturePhoto();">
+                                            <img class="FWM-photo" src="img/camera.svg" id="photoIcon" width="45px" style="margin-left: 50px;"/>
+                                        </a>
+                                </div>
+                                <img class="FWM-photo-hide" id="smallImage" src=""/>
+                                <input type="hidden" id="imagenC" name="imagenC"/>
+                            </div>
+                            <br>
+                            <div class="block-title FWM-subtitulo">Minuta de Seguimiento:</div>  
+                            <div class="card data-table">
+                                <div class="infinite-scroll-content">
+                                    <table id="tabla_SURO6">
+                                        <thead>
+                                            <tr>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Accion</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Foto</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Comentario</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <!-- <div class="sentencia preloader color-grey infinite-scroll-preloader"></div> -->
+                                    <div id="message-nr" style="width: 100%;text-align: center;font-family: 'ITC Avant Garde Gothic', sans-serif;font-size: 16px;" style="display: none;">
+                                        <p>Sin registros</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>              
+        </div>   
+    </div>
+</template>
+<script>
+    return {
+        on: {
+            pageInit: function () {
+                $('.preloader').remove();
+                $('.infinite-scroll-preloader').remove();
+                var id_cedula = localStorage.getItem("IdCedula");
+            }
+        }
+    }
+</script>

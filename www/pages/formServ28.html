@@ -1,0 +1,271 @@
+<style>
+    .text-divided-check{
+        margin-top: 0px
+    }
+    .sheet-modal.modal-in{
+        height: 80%;
+    }
+    .text-check{
+        padding-top: 4px;
+        margin: 0;
+        line-height: 17px;
+        padding-right: 16px;
+        height: auto;
+        margin-top: 8px;
+    }
+    .container-check{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: center;
+        margin-top: 10px;
+        margin-bottom: 6px;
+    }
+    .select-check{
+        width: 126px !important;
+        padding-left: 3px;
+        font-size: 15px !important;
+        height: 37 px !important;
+        font-family: 'ITC Avant Garde Gothic', sans-serif;
+        background-color: white !important;
+        border: 1px solid gray;
+        border-radius: 8px;
+        margin-bottom: 0px;
+    }
+    </style>
+    <template>
+        <div class="view view-main view-init safe-areas">
+            <div class="page" id="FWM-1">
+                <!-- Navbar -->
+                <div class="navbar" style="background-color: #063E7F;height: 52px;">
+                    <div style="text-align: center;"><img src="img/logo-FWM.png" style="margin-top: 5px;" height="41.38px" alt="Logo Field"></div>
+                    <div class="navbar-inner sliding" style="height: 52px;">
+                        <div class="left">
+                            <a href="#" onclick="regresarRecorridoServInd3();">
+                                <span class="nav-text-regresar" id="nav-text-regresar-function">Regresar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contenido Formulario -->                                
+                <div class="page-content">
+     
+                    <div style="text-align: center; justify-content:center; margin-right:auto; margin-left:auto; width: 99%;margin-top: 30px;">
+                        <h2 class="FWN-titulo-2">Revisión de los Ciclos de Lavado</h2>
+                        <div style="text-align: left;">    
+                            <form class="list FWM-fixing-form">
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Abrillantado</span>
+                                    <select id="Punto-88" name="Punto-88" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Sin pastillas</span>
+                                    <select id="Punto-89" name="Punto-89" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Eco Ligero</span>
+                                    <select id="Punto-90" name="Punto-90" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Eco Medio/Intermedio</span>
+                                    <select id="Punto-91" name="Punto-91" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Rápido/Ligero</span>
+                                    <select id="Punto-92" name="Punto-92" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Eco Intenso</span>
+                                    <select id="Punto-93" name="Punto-93" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Normal Ligero</span>
+                                    <select id="Punto-94" name="Punto-94" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Normal Medio</span>
+                                    <select id="Punto-95" name="Punto-95" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check">Normal Intenso/Fuerte</span>
+                                    <select id="Punto-96" name="Punto-96" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;">
+                                    <label class="text-divided-check" style="width: 25%;">Hrs.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">Min.<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                    <label class="text-divided-check" style="width: 25%;">&nbsp;</label>
+                                </div>
+
+                            </form>
+    
+                            <div class="block-title FWM-subtitulo">Evidencias:</div>  
+                            
+                            <div class="card data-table">
+                                <div class="infinite-scroll-content">
+                                    <table id="tabla_diagnostico">
+                                        <thead>
+                                            <tr>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Accion</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Foto</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="sentencia preloader color-grey infinite-scroll-preloader"></div>
+                                    <div id="message-nr" style="width: 100%;text-align: center;font-family: 'ITC Avant Garde Gothic', sans-serif;font-size: 16px;" style="display: none;">
+                                        <p>Sin registros</p>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    <div style="display: flex;flex-direction: row;justify-content: space-between; margin-top: 120px; margin-bottom: 20px;">
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ27/', {force: true, ignoreCache: true, reload: true});">Anterior</button>
+                        <a href="#" class="buble-float link popover-open" data-popover=".popover-links" style="background:cadetblue; width: 20%;">
+                            <i class="material-icons md-light" style="color: #ffffff;font-size: 35px;">book</i>
+                        </a>
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ29/', {force: true, ignoreCache: true, reload: true});">Siguiente</button>
+                    </div>
+    
+                    <div class="popover popover-links">
+                        <div class="popover-inner">
+                            <div class="list">
+                            <ul>
+                                <li><a class="list-button item-link popover-close" onclick="showTPM()">TPM</a></li>
+                                <li><a class="list-button item-link popover-close" onclick="showManual()">Manual</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Fin contenido formulario -->
+                    <fwm></fwm>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        return {
+            on: {
+                pageInit: function (e, page) {
+                    $('.preloader').remove();
+                    $('.infinite-scroll-preloader').remove();
+    
+                }
+            }  
+        }
+    </script>

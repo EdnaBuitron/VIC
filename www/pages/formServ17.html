@@ -1,0 +1,284 @@
+<style>
+    .text-divided-check{
+        margin-top: 0px
+    }
+    .sheet-modal.modal-in{
+    height: 80%;
+    }
+</style>
+<template>
+    <div class="view view-main view-init safe-areas">
+        <div class="page" id="FWM-1">
+            <!-- Navbar Inicio -->
+            <div class="navbar" style="background-color: #063E7F;height: 52px;">
+                <div style="text-align: center;"><img src="img/logo-FWM.png" style="margin-top: 5px;" height="41.38px" alt="Logo Field"></div>
+                <div class="navbar-inner sliding" style="height: 52px;">
+                    <div class="left">
+                        <a href="#" onclick="regresarRecorridoServInd1();">
+                            <span class="nav-text-regresar" id="nav-text-regresar-function">Regresar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Navbar Fin -->
+            <div class="page-content">
+                <div style="text-align: center; justify-content:center; margin-right:auto; margin-left:auto; width: 99%;margin-top: 30px;">
+                    <!-- Inicio Contenido Formulario -->                                
+                    <h2 class="FWN-titulo-2">Revisión de Gabinete en General</h2>
+
+                    <div style="text-align: left;">
+                        <form class="list FWM-fixing-form">
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="padding-top: 5px;">33.- Ajuste y fijación de tornillería del gabinete</span>
+                                <select id="Punto-33" name="Punto-33" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="padding-top: 5px;">34.- Limpieza general del equipo</span>
+                                <select id="Punto-34" name="Punto-34" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check">35.- Sellos mecánicos y transmisiones del sistema</span>
+                                <select id="Punto-35" name="Punto-35" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check">36.- Limpieza irrigadores y mangueras de distribución de agua</span>
+                                <select id="Punto-36" name="Punto-36" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check">37.- Revisión y limpieza depositos de cortinas de agua</span>
+                                <select id="Punto-37" name="Punto-37" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check">38.- Depósito de operación (fugas, griestas, desnivel, etc.)</span>
+                                <select id="Punto-38" name="Punto-38" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="padding-top: 5px;">39.- Revisión de empaques</span>
+                                <select id="Punto-39" name="Punto-39" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="padding-top: 5px;">40.- Revisión de bisagras</span>
+                                <select id="Punto-40" name="Punto-40" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="padding-top: 5px;">41.- Repisas, vidrios, protectores</span>
+                                <select id="Punto-41" name="Punto-41" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="padding-top: 5px;">42.- Buena ventilación del equipo</span>
+                                <select id="Punto-42" name="Punto-42" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="padding-top: 5px;">43.- Extracción de aire</span>
+                                <select id="Punto-43" name="Punto-43" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check" style="margin-top: 3px;">44.- Limpieza al sistema de drenado</span>
+                                <select id="Punto-44" name="Punto-44" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check">45.- Limpieza, lubricación y estado de válvulas y sistema de drenado y/o escape</span>
+                                <select id="Punto-45" name="Punto-45" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check">
+                                <span class="span FWM-span-form text-check">46.- Ajuste y verificación de bandas y poleas de los mecánicos</span>
+                                <select id="Punto-46" name="Punto-46" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                    <option value="0"></option>
+                                    <option value="1">Bueno</option>
+                                    <option value="2">Regular</option>
+                                    <option value="3">Malo</option>
+                                    <option value="4">Observación</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="container-check" style="margin-bottom: 0%;">
+                                <span class="span FWM-span-form" style="margin-bottom: 5px;">Revisión de cosecha</span>
+                            </div>
+                            <div style="display: flex;justify-content: space-around;margin-bottom: 16px;">
+                                <label class="text-divided-check" style="width: 45%;">Cosecha<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                <label class="text-divided-check" style="width: 20%; padding-top: 28px;">min.</label>
+                                <label class="text-divided-check" style="width: 30%;">&nbsp;<input type="text" id="amp2" class="multiple-input-divided-check" onchange="inputLleno(this.id,this.value)"></label>
+                                <label class="text-divided-check" style="width: 5%; padding-top: 28px;">Kg</label>
+                            </div>
+                            
+                        </form>
+                    </div>
+
+                    <div class="block-title FWM-subtitulo" style="text-align: left;">Evidencias:</div>  
+                        
+                    <div class="card data-table">
+                        <div class="infinite-scroll-content">
+                            <table id="tabla_diagnostico">
+                                <thead>
+                                    <tr>
+                                        <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Accion</th>
+                                        <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Foto</th>
+                                        <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Titulo</th>
+                                        <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <div class="sentencia preloader color-grey infinite-scroll-preloader"></div>
+                            <div id="message-nr" style="width: 100%;text-align: center;font-family: 'ITC Avant Garde Gothic', sans-serif;font-size: 16px;" style="display: none;">
+                                <p>Sin registros</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block grid-resizable-demo" style="margin-bottom: 120px; margin-top: 80px;">
+                        <div class="row align-items-stretch" style="text-align: center;">
+                            <div class="col-100 medium-50" style="min-width: 50px; border-style: none;">
+                                <span class="resize-handler"></span>
+                                    <button class="fwm-button-send" onclick="guardarGabineteServind();">Guardar Gabinete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex;flex-direction: row;justify-content: space-between; margin-top: 50px; margin-bottom: 20px;">
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ15/', {force: true, ignoreCache: true, reload: true});">Anterior</button>
+                        <a href="#" class="buble-float link popover-open" data-popover=".popover-links" style="background:cadetblue; width: 20%;">
+                            <i class="material-icons md-light" style="color: #ffffff;font-size: 35px;">book</i>
+                        </a>
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ18/', {force: true, ignoreCache: true, reload: true});">Siguiente</button>
+                    </div>
+    
+                    <div class="popover popover-links">
+                        <div class="popover-inner">
+                            <div class="list">
+                            <ul>
+                                <li><a class="list-button item-link popover-close" onclick="showTPM()">TPM</a></li>
+                                <li><a class="list-button item-link popover-close" onclick="showManual()">Manual</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin Contenido Formulario -->
+                </div>
+                <fwm></fwm>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    return {
+        on: {
+            pageInit: function (e, page) {
+                $('.preloader').remove();
+                $('.infinite-scroll-preloader').remove();
+
+                var id_cedula = localStorage.getItem("IdCedula");
+                databaseHandler.db.transaction(
+                    function(tx){
+                        tx.executeSql(
+                            "Select opcion,valor from selectcheck WHERE id_cedula = ? AND fase = '4'",
+                            [id_cedula],
+                            function(tx, results){
+                                let length = results.rows.length;
+                                for(var i = 0; i< length; i++){
+                                    var item = results.rows.item(i);
+                                    $("#4-"+item.opcion+"-select").val(item.valor);
+                                } 
+                            },
+                            function(tx, error){
+                                console.log("Error al guardar cedula: " + error.message);
+                                app.preloader.hide();  
+                            }
+                        );  
+                    },
+                    function(error){},
+                    function(){}
+                );
+            }
+        }  
+    }
+</script>

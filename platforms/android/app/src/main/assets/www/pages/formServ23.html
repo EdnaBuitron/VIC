@@ -1,0 +1,290 @@
+<style>
+    .text-divided-check{
+        margin-top: 0px
+    }
+    .sheet-modal.modal-in{
+        height: 80%;
+    }
+    input[type=checkbox]{
+        transform: scale(1.5);
+        margin-right: 10px;
+    }
+    .text-check{
+        padding-top: 4px;
+        margin: 0;
+        line-height: 17px;
+        padding-right: 16px;
+        height: auto;
+        margin-top: 8px;
+    }
+    </style>
+    <template>
+        <div class="view view-main view-init safe-areas">
+            <div class="page" id="FWM-1">
+                <!-- Navbar -->
+                <div class="navbar" style="background-color: #063E7F;height: 52px;">
+                    <div style="text-align: center;"><img src="img/logo-FWM.png" style="margin-top: 5px;" height="41.38px" alt="Logo Field"></div>
+                    <div class="navbar-inner sliding" style="height: 52px;">
+                        <div class="left">
+                            <a href="#" onclick="regresarRecorridoServInd3();">
+                                <span class="nav-text-regresar" id="nav-text-regresar-function">Regresar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contenido Formulario -->                                
+                <div class="page-content">
+     
+                    <div style="text-align: center; justify-content:center; margin-right:auto; margin-left:auto; width: 99%;margin-top: 30px;">
+                        <h2 class="FWN-titulo-2">Revisión de Tarjetas Electrónicas</h2>
+                        <div style="text-align: left;">    
+                            <form class="list FWM-fixing-form">
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta PCB</span>
+                                    <select id="Punto-43" name="Punto-43" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta I/O</span>
+                                    <select id="Punto-44" name="Punto-44" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta MMI</span>
+                                    <select id="Punto-45" name="Punto-45" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A10</span>
+                                    <select id="Punto-46" name="Punto-46" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A11</span>
+                                    <select id="Punto-47" name="Punto-47" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A12</span>
+                                    <select id="Punto-48" name="Punto-48" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A13</span>
+                                    <select id="Punto-49" name="Punto-49" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A14</span>
+                                    <select id="Punto-50" name="Punto-50" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A17</span>
+                                    <select id="Punto-51" name="Punto-51" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A18</span>
+                                    <select id="Punto-52" name="Punto-52" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A19</span>
+                                    <select id="Punto-53" name="Punto-53" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A20</span>
+                                    <select id="Punto-54" name="Punto-54" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A21</span>
+                                    <select id="Punto-55" name="Punto-55" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A22</span>
+                                    <select id="Punto-56" name="Punto-56" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A23</span>
+                                    <select id="Punto-57" name="Punto-57" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A31</span>
+                                    <select id="Punto-58" name="Punto-58" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                                <div class="container-check">
+                                    <span class="span FWM-span-form text-check"><input type="checkbox" name="" id="">Tarjeta A32</span>
+                                    <select id="Punto-59" name="Punto-59" class="select-check" onchange="checkSelect(this.value, this.id);">
+                                        <option value="0"></option>
+                                        <option value="1">Bueno</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Malo</option>
+                                        <option value="4">Observación</option>
+                                    </select>
+                                </div>
+
+                            </form>
+    
+                            <div class="block-title FWM-subtitulo">Evidencias:</div>  
+                            
+                            <div class="card data-table">
+                                <div class="infinite-scroll-content">
+                                    <table id="tabla_diagnostico">
+                                        <thead>
+                                            <tr>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Accion</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Foto</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="sentencia preloader color-grey infinite-scroll-preloader"></div>
+                                    <div id="message-nr" style="width: 100%;text-align: center;font-family: 'ITC Avant Garde Gothic', sans-serif;font-size: 16px;" style="display: none;">
+                                        <p>Sin registros</p>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    <div style="display: flex;flex-direction: row;justify-content: space-between; margin-top: 120px; margin-bottom: 20px;">
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ22/', {force: true, ignoreCache: true, reload: true});">Anterior</button>
+                        <a href="#" class="buble-float link popover-open" data-popover=".popover-links" style="background:cadetblue; width: 20%;">
+                            <i class="material-icons md-light" style="color: #ffffff;font-size: 35px;">book</i>
+                        </a>
+                        <button class="btn-next" onclick="app.views.main.router.back('/formServ24/', {force: true, ignoreCache: true, reload: true});">Siguiente</button>
+                    </div>
+    
+                    <div class="popover popover-links">
+                        <div class="popover-inner">
+                            <div class="list">
+                            <ul>
+                                <li><a class="list-button item-link popover-close" onclick="showTPM()">TPM</a></li>
+                                <li><a class="list-button item-link popover-close" onclick="showManual()">Manual</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Fin contenido formulario -->
+                    <fwm></fwm>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        return {
+            on: {
+                pageInit: function (e, page) {
+                    $('.preloader').remove();
+                    $('.infinite-scroll-preloader').remove();
+    
+                }
+            }  
+        }
+    </script>
