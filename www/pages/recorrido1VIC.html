@@ -149,15 +149,17 @@
     on: {
       pageInit: function () {
         var id_cedula = localStorage.getItem("IdCedula");     
-        var nombre_cliente= localStorage.getItem("nombre_cliente");
-        nombre_cliente=nombre_cliente.toUpperCase();
-        if (nombre_cliente.includes('DOMINOS')){
-            var  emp = 1;
-        }else if (nombre_cliente.includes('VIPS')){
-            var  emp = 2;
-        }else if (nombre_cliente.includes('ITALIANNIS')){
-            var  emp = 3;
-        }
+        // var nombre_cliente= localStorage.getItem("nombre_cliente");
+        // nombre_cliente=nombre_cliente.toUpperCase();
+        // if (nombre_cliente.includes('DOMINOS')){
+        //     var  emp = 1;
+        // }else if (nombre_cliente.includes('VIPS')){
+        //     var  emp = 2;
+        // }else if (nombre_cliente.includes('ITALIANNIS')){
+        //     var  emp = 3;
+        // }
+        var emp = localStorage.getItem("tipoEmpresa"); 
+        // console.log('emp',emp) 
         var Nom = 'Preguntas-VIC-1';
         app.request.get(cordova.file.dataDirectory + "jsons/"+Nom+".json", function (data) {
             var content = JSON.parse(data);            

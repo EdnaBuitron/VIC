@@ -20555,16 +20555,8 @@
         );
     }
 
-    function generarAuditoriaVIC(){
-            var nombre_cliente= localStorage.getItem("nombre_cliente");
-            nombre_cliente=nombre_cliente.toUpperCase();
-            if (nombre_cliente.includes('DOMINOS')){
-                var  emp = 1;
-            }else if (nombre_cliente.includes('VIPS')){
-                var  emp = 2;
-            }else if (nombre_cliente.includes('ITALIANNIS')){
-                var  emp = 3;
-            }
+    function generarAuditoriaVIC(emp){ 
+            localStorage.setItem("tipoEmpresa", emp);            
             if (emp == undefined){
                 swal("", "No Existen auditorías disponibles para este cliente", "warning");
                 return false;
@@ -20721,7 +20713,7 @@
                 },
               })
               .then((value) => {
-                console.log(value);
+                // console.log(value);
                 switch (value) {
                     
                   case "1":

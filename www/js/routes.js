@@ -1230,6 +1230,11 @@ var routes = [
       path: '/Recorrido1VIC/',
       componentUrl: './pages/recorrido1VIC.html',
     },
+    {  
+      name: 'tipoAud', 
+      path: '/tipoAud/',
+      componentUrl: './pages/tipoAud.html',
+    },
     //Fin VIC
     {  
       name: 'yallegueSMC2', 
