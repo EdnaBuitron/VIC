@@ -158,19 +158,27 @@
         // }else if (nombre_cliente.includes('ITALIANNIS')){
         //     var  emp = 3;
         // }
-        var emp = localStorage.getItem("tipoEmpresa"); 
+       // var emp = localStorage.getItem("tipoEmpresa"); 
         // console.log('emp',emp) 
-        var Nom = 'Preguntas-VIC-1';
-        app.request.get(cordova.file.dataDirectory + "jsons/"+Nom+".json", function (data) {
-            var content = JSON.parse(data);            
-            var VIC ;
-            if(emp == 1){
-              VIC =content[0];
-            }else if(emp == 2){
-              VIC =content[1];
-            }else if(emp == 3){
-              VIC =content[2];
-            }
+
+        databaseHandler.db.transaction(
+                function(tx){
+                    tx.executeSql("Select * from datosVIC where id_cedula = ?",
+                    [id_cedula],
+                        function(tx, results){
+                            var item = results.rows.item(0);
+                            var emp = item.tipo_empresa; 
+                            var Nom = 'Preguntas-VIC-1';
+                        app.request.get(cordova.file.dataDirectory + "jsons/"+Nom+".json", function (data) {
+                            var content = JSON.parse(data);            
+                            var VIC ;
+                            if(emp == 1){
+                             var VIC =content[0];
+                            }else if(emp == 2){
+                             var  VIC =content[1];
+                            }else if(emp == 3){
+                             var  VIC =content[2];
+                            }
             var html = "";
             var validar;
             for(let i = 0; i < VIC.length ;i++){
@@ -196,7 +204,7 @@
                   </div>
                 </div>
                 <span class="span FWM-span-form" style="width: 90%;">Recomendación:</span>
-                <textarea class ="FWM-input"  id="RE${VIC[i].Orden}" name="RE${VIC[i].Orden}" ></textarea>
+                <textarea class ="FWM-input"  id="RE${VIC[i].Orden}" name="RE${VIC[i].Orden}" onchange="RecomendacionVIC(this.value,${VIC[i].Orden},${VIC[i].id_pregunta},'${VIC[i].Nivel}')" ></textarea>
                   <div>
                    <span class="span FWM-span-form" style="margin: 8px 15px;" >Toma de fotografia</span>
                     <div class="FWM-photo-container">
@@ -247,6 +255,16 @@
           $('#Preguntas-VIC').append(html);
 
         });
+                        },
+                        function(tx, error){
+                            console.log("Error al guardar: " + error.message);
+                        }
+                    );
+                },
+                function(error){},
+                function(){}
+            );
+        
         databaseHandler.db.transaction(
         function (tx) {
           tx.executeSql(

@@ -20554,14 +20554,73 @@
             function () { }
         );
     }
-
+    function validarAud(){
+        var id_cedula = localStorage.getItem("IdCedula");
+        databaseHandler.db.transaction(
+            function(tx){
+                tx.executeSql("Select * from datosVIC where id_cedula = ?",
+                [id_cedula],
+                    function(tx, results){
+                        var item = results.rows.item(0);
+                        var emp = item.tipo_empresa; 
+                        console.log("empresa",emp);
+                        if(emp){
+                            app.views.main.router.navigate({ name: 'Recorrido1VIC' });
+                        }else{
+                            app.views.main.router.navigate({ name: 'tipoAud' });
+                        }
+                    },
+                    function(tx, error){
+                        console.log("Error al guardar: " + error.message);
+                    }
+                );
+            },
+            function(error){},
+            function(){}
+        );
+    }
     function generarAuditoriaVIC(emp){ 
-            localStorage.setItem("tipoEmpresa", emp);            
-            if (emp == undefined){
-                swal("", "No Existen auditorías disponibles para este cliente", "warning");
-                return false;
-            }
-            var id_cedula= localStorage.getItem("IdCedula");
+           // localStorage.setItem("tipoEmpresa", emp);
+           
+           let id_cedula = localStorage.getItem("IdCedula");                      
+           if(emp == 1){
+            var nom = "Dominos";
+        }else if(emp == 2){
+            var nom = "Vips";
+        }else if(emp == 3){
+            var nom ="Italianis";
+        }
+           swal({
+            title: "Aviso",
+            text: "el tipo de empresa no se podrar modificar, ¿Seguro que deseas continuar con la empresa "+nom+" ?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: false,
+        })
+        .then((willGoBack) => {
+            if (willGoBack){
+            databaseHandler.db.transaction(
+                function(tx){
+                    tx.executeSql("UPDATE datosVIC SET tipo_empresa = ? WHERE id_cedula = ?",
+                        [emp,id_cedula],
+                            function(tx, results){ 
+                                },
+                        function(tx, error){
+                            console.log("Error: " + error.message);
+                            app.preloader.hide();  
+                        }
+                    );  
+                },
+                    function(error){
+                        console.log("Error: " + error.message);
+                    },
+                    function(){}
+            );
+
+            // if (emp == undefined){
+            //     swal("", "No Existen auditorías disponibles para este cliente", "warning");
+            //     return false;
+            // }
             var Nom = 'Preguntas-VIC-1';
             app.request.get(cordova.file.dataDirectory + "jsons/"+Nom+".json", function (data) {
                 var content2 = JSON.parse(data);    
@@ -20613,9 +20672,13 @@
                 );        
                 app.views.main.router.navigate({ name: 'Recorrido1VIC' });
             });   
+            } else {}
+        });
+            
     }
 
     function RespuestaVIC(res,orden,id_pregunta,factor){
+       
         var id_cedula = localStorage.getItem("IdCedula");    
         var fecha = new Date();
         var fechaL = fecha.getFullYear() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate() + " " + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
@@ -20624,6 +20687,26 @@
                 tx.executeSql(
                     "UPDATE VIC_Respuesta SET respuesta = ? ,fecha = ? , factor = ? WHERE id_cedula = ?  and id_pregunta =?  ",
                     [res,fechaL,factor,id_cedula,id_pregunta],
+                    function (tx, results) {
+                        app.preloader.hide();
+                    },
+                    function (tx, error) {
+                        console.log("Error al guardar registroVIC: " + error.message);
+                        app.preloader.hide();
+                    }
+                );
+            },
+            function (error) { },
+            function () { }
+        );
+    }
+    function RecomendacionVIC(res,orden,id_pregunta,factor){
+        var id_cedula = localStorage.getItem("IdCedula");    
+         databaseHandler.db.transaction(
+            function (tx) {
+                tx.executeSql(
+                    "UPDATE VIC_Respuesta SET recomendacion = ? WHERE id_cedula = ?   and orden =? and id_pregunta =?  ",
+                    [res,id_cedula,orden,id_pregunta],
                     function (tx, results) {
                         app.preloader.hide();
                     },
@@ -20665,23 +20748,23 @@
                             swal("Falta Pregunta", "Debe de contestar las pregunta numero: "+obli,"warning");
                             return false;
                         }else{
-                            for (var i = 0; i < length; i++) {
-                                var item = results.rows.item(i); 
-                                var recom = $("#RE"+item.orden).val();
-                                tx.executeSql(
-                                "UPDATE VIC_Respuesta SET recomendacion = ?  WHERE id_cedula = ? and orden =?",
-                                [recom,id_cedula,item.orden],
-                                function (tx, results) {
-                                    app.preloader.hide();
+                            // for (var i = 0; i < length; i++) {
+                            //     var item = results.rows.item(i); 
+                            //     var recom = $("#RE"+item.orden).val();
+                            //     tx.executeSql(
+                            //     "UPDATE VIC_Respuesta SET recomendacion = ?  WHERE id_cedula = ? and orden =?",
+                            //     [recom,id_cedula,item.orden],
+                            //     function (tx, results) {
+                            //         app.preloader.hide();
                                     app.views.main.router.navigate({name: 'recorridoVIC3'});
                                    
-                                },
-                                function (tx, error) {
-                                    console.log("Error al guardar registroVIC: " + error.message);
-                                    app.preloader.hide();
-                                }
-                            );
-                            }
+                            //     },
+                            //     function (tx, error) {
+                            //         console.log("Error al guardar registroVIC: " + error.message);
+                            //         app.preloader.hide();
+                            //     }
+                            // );
+                            // }
                         }
                         app.preloader.hide();
                     },
@@ -21307,9 +21390,8 @@
             function(){}
         );
     }
-    function irCierreVIC(){
+    function irCierreVIC(){        
         var id_cedula = localStorage.getItem("IdCedula");
-
             databaseHandler.db.transaction(
                 function(tx){
                     tx.executeSql(
@@ -21318,7 +21400,9 @@
                             function(tx, results){
                                 let length = results.rows.length;
                                 for(var i = 0; i< length; i++){
-                                    var item = results.rows.item(i);
+                                    var item = results.rows.item(i);                                    
+                                    var emp = item.tipo_empresa; 
+                                    console.log("empresa",emp);
                                         if(item.nombre_contacto=='' || item.telefono == '' || item.correo==''){
                                             swal({
                                                 title: "Aviso",
@@ -21328,12 +21412,127 @@
                                                 dangerMode: false,
                                             })
                                             .then((willGoBack) => {
-                                                if (willGoBack){
-                                                    app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                                if (willGoBack){                                                    
+                                                    if(emp){
+                                                        var Nom = 'Preguntas-VIC-1';
+                                                        app.request.get(cordova.file.dataDirectory + "jsons/"+Nom+".json", function (data) {
+                                                            var content2 = JSON.parse(data);    
+                                                            var VIC ;
+                                                            if(emp == 1){
+                                                                var VIC =content2[0];
+                                                            }else if(emp == 2){
+                                                                var VIC =content2[1];
+                                                            }else if(emp == 3){
+                                                                var VIC =content2[2];
+                                                            }                            
+                                                            var tamaVic = VIC.length;                            
+                                                            databaseHandler.db.transaction(
+                                                                function (tx) {
+                                                                    tx.executeSql(
+                                                                        "Select * from VIC_Respuesta where id_cedula = ? and respuesta IS NOT NULL",
+                                                                        [id_cedula],
+                                                                        function (tx, results) {
+                                                                            let length = results.rows.length; 
+                                                                            var obl = '';
+                                                                            if (length == tamaVic){
+                                                                                app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                                                            }else{
+                                                                                swal({
+                                                                                    title: "Aviso",
+                                                                                    text: "Tienes la auditoria incompleta. ¿Seguro que deseas continuar así?",
+                                                                                    icon: "warning",
+                                                                                    buttons: true,
+                                                                                    dangerMode: false,
+                                                                                })
+                                                                                .then((willGoBack) => {
+                                                                                    if (willGoBack){
+                                                                                        app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                                                                    } else {}
+                                                                                });
+                                                                            }
+                                                                        },
+                                                                        function (tx, error) {
+                                                                            console.log("Error al guardar registroPL: " + error.message);
+                                                                            app.preloader.hide();
+                                                                        }
+                                                                    );
+                                                                },
+                                                                function (error) { },
+                                                                function () { }
+                                                            );
+                            
+                                                        });
+                            
+                            
+                            
+                                                    } else{
+                        
+                                                                app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                                       
+                                                    }                                                   
+                                                    // app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
                                                 } else {}
                                             });
                                         }else{
-                                            app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                            if(emp){
+                                                var Nom = 'Preguntas-VIC-1';
+                                                app.request.get(cordova.file.dataDirectory + "jsons/"+Nom+".json", function (data) {
+                                                    var content2 = JSON.parse(data);    
+                                                    var VIC ;
+                                                    if(emp == 1){
+                                                        var VIC =content2[0];
+                                                    }else if(emp == 2){
+                                                        var VIC =content2[1];
+                                                    }else if(emp == 3){
+                                                        var VIC =content2[2];
+                                                    }
+                    
+                                                    var tamaVic = VIC.length;
+                    
+                                                    databaseHandler.db.transaction(
+                                                        function (tx) {
+                                                            tx.executeSql(
+                                                                "Select * from VIC_Respuesta where id_cedula = ? and respuesta IS NOT NULL",
+                                                                [id_cedula],
+                                                                function (tx, results) {
+                                                                    let length = results.rows.length; 
+                                                                    var obl = '';
+                                                                    if (length == tamaVic){
+                                                                        app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                                                    }else{
+                                                                        swal({
+                                                                            title: "Aviso",
+                                                                            text: "Tienes la auditoria incompleta. ¿Seguro que deseas continuar así?",
+                                                                            icon: "warning",
+                                                                            buttons: true,
+                                                                            dangerMode: false,
+                                                                        })
+                                                                        .then((willGoBack) => {
+                                                                            if (willGoBack){
+                                                                                app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                                                            } else {}
+                                                                        });
+                                                                    }
+                                                                },
+                                                                function (tx, error) {
+                                                                    console.log("Error al guardar registroPL: " + error.message);
+                                                                    app.preloader.hide();
+                                                                }
+                                                            );
+                                                        },
+                                                        function (error) { },
+                                                        function () { }
+                                                    );
+                    
+                                                });
+                    
+                    
+                    
+                                            } else{
+                         
+                                                app.views.main.router.back('/cierreVIC/', {force: true, ignoreCache: true, reload: true});
+                                                
+                                            }
                                         }
                                 }
                                 },

@@ -665,10 +665,10 @@ var databaseHandler = {
                 );
                  //vic 2
                  tx.executeSql(
-                    "create table if not exists datosVIC(id_datos integer primary key, id_cedula integer, foto_inicio blob, id_cliente text, nombre_cliente text, nombre_comercial text, nombre_contacto text , telefono text, correo text, estatus_cliente text, firma_cliente blob, foto_salida blob, observaciones_generales text, estado_cuenta text, tipo_visita text, permite_almacen text, persona_cuenta text, correo_cuenta text,pregunta_equipo text, pregunta_img text, pregunta_entrena text, pregunta_pedido text)",
+                    "create table if not exists datosVIC(id_datos integer primary key, id_cedula integer, foto_inicio blob, id_cliente text, nombre_cliente text, nombre_comercial text, nombre_contacto text , telefono text, correo text, estatus_cliente text, firma_cliente blob, foto_salida blob, observaciones_generales text, estado_cuenta text, tipo_visita text, permite_almacen text, persona_cuenta text, correo_cuenta text,pregunta_equipo text, pregunta_img text, pregunta_entrena text, pregunta_pedido text,tipo_empresa text)",
                     [],
                     function(tx, results){
-                     //    console.log("Se creo APOYO VIC correctamente!");
+                        //console.log("Se creo APOYO VIC correctamente!");
                     },
                     function(tx, error){
                         console.error("Error al crear la tabla datos_VIC: " + error.message);
