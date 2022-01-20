@@ -15943,22 +15943,25 @@
                                                                                                                                                                                                     var dat1 = respu1[0];
                                                                                                                                                                                                     var dat2 = respu1[1];
                                                                                                                                                                                                     var enviadoA=0;
-                                                                                                                                                                                                    if(dat1 == "CEDULA"){
-                                                                                                                                                                                                        if(dat2 > 0){
-                                                                                                                                                                                                            databaseHandler.db.transaction(
-                                                                                                                                                                                                                function(tx7){
-                                                                                                                                                                                                                    tx7.executeSql(
-                                                                                                                                                                                                                        "UPDATE cedulas_general SET estatus = 3 WHERE id_cedula = ?",
-                                                                                                                                                                                                                        [id_cedula],
-                                                                                                                                                                                                                        function(tx7, results){
-                                                                                                                                                                                                                            localStorage.setItem("sendFlag", 0);
-                                                                                                                                                                                                                            swal("Enviado!", "Ya se envio tu visita!", "success");
-                                                                                                                                                                                                                            databaseHandler.db.transaction(
-                                                                                                                                                                                                                                function(tx8){
-                                                                                                                                                                                                                                    tx8.executeSql(
-                                                                                                                                                                                                                                        "UPDATE equiposCargados SET enviado = 1 WHERE enviado = ?",
-                                                                                                                                                                                                                                         [enviadoA],
-                                                                                                                                                                                                                                        function(tx8, results){
+                                                                                                                                                                                                    //console.log('res',respuesta);
+                                                                                                                                                                                                            if(dat1 == "CEDULA"){
+                                                                                                                                                                                                                if(dat2 > 0){
+                                                                                                                                                                                                                    databaseHandler.db.transaction(
+                                                                                                                                                                                                                        function(tx7){
+                                                                                                                                                                                                                            tx7.executeSql(
+                                                                                                                                                                                                                                "UPDATE cedulas_general SET estatus = 3 WHERE id_cedula = ?",
+                                                                                                                                                                                                                                [id_cedula],
+                                                                                                                                                                                                                                function(tx7, results){
+                                                                                                                                                                                                                                    localStorage.setItem("sendFlag", 0);
+                                                                                                                                                                                                                                    swal("Enviado!", "Ya se envio tu visita!", "success");
+                                                                                                                                                                                                                                    databaseHandler.db.transaction(
+                                                                                                                                                                                                                                        function(tx8){
+                                                                                                                                                                                                                                            tx8.executeSql(
+                                                                                                                                                                                                                                                "UPDATE equiposCargados SET enviado = 1 WHERE enviado = ?",
+                                                                                                                                                                                                                                                 [enviadoA],
+                                                                                                                                                                                                                                                function(tx8, results){
+                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                            );
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                     );
                                                                                                                                                                                                                                 }
@@ -15966,9 +15969,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                     );
                                                                                                                                                                                                                 }
-                                                                                                                                                                                                            );
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                    }
+                                                                                                                                                                                                            }
                                                                                                                                                                                                 },
                                                                                                                                                                                                 error: function(){
                                                                                                                                                                                                     console.log(respuesta);
@@ -21699,12 +21700,12 @@
         var fecha = new Date();
         var fecha_tomada = fecha.getFullYear()+"-"+(fecha.getMonth()+1)+"-"+fecha.getDate()+" "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds();
         //console.log("patiende: "+Patiende+"- Ppuesto: "+Ppuesto+"- Ptelefono: "+Ptelefono+"- Pcorreo:"+Pcorreo+" actividades:"+actividades+" - tema:"+tema+"- compromiso: "+compromiso+"- fecha:"+fecha);
-        if (tema && compromiso && fecha_compromiso && foto){
+        if (tema && compromiso && fecha_compromiso ){
                 app.preloader.show('blue');
                 databaseHandler.db.transaction(
                     function(tx){
-                        tx.executeSql("INSERT INTO minuta(id_cedula,tema,compromiso,fecha,foto,fecha_foto) VALUES (?,?,?,?,?,?)",
-                            [id_cedula,tema,compromiso,fecha_compromiso,foto,fecha_tomada],
+                        tx.executeSql("INSERT INTO minuta(id_cedula,tema,compromiso,fecha) VALUES (?,?,?,?)",
+                            [id_cedula,tema,compromiso,fecha_compromiso],
                             function(tx, results){
                                 //console.log("Datos Guardados");
                                 swal("","Se guardaron los datos correctamente", "success");
@@ -21721,7 +21722,7 @@
                                                 var item = results.rows.item(0);
                                                 $("#smallImage").attr("src","img/blank.png");
                                                 $("#photoIcon").attr("src","img/camera.svg");
-                                                $("#VentasBennetts_content").append("<tr id='fila"+ item.id_minuta +"'><td id='tdaccion'><a href='#' onclick='eliminarFilaVIC("+ item.id_minuta +",2);' style='border: none; outline:none;'><img src='img/borrar.png' width='30px' /></a></td><td id='tdtema' style='text-align: center;'>" + item.tema + "</td><td id='tdfoto'><img src='"+item.foto+"' width='60px' style='margin-top: 4px;'/></td><td id='tdcompromiso' style='text-align: center;'>" + item.compromiso + "</td><td id='tdfecha' style='text-align: center;'>" + item.fecha + "</td></tr>");
+                                                $("#VentasBennetts_content").append("<tr id='fila"+ item.id_minuta +"'><td id='tdaccion'><a href='#' onclick='eliminarFilaVIC("+ item.id_minuta +",2);' style='border: none; outline:none;'><img src='img/borrar.png' width='30px' /></a></td><td id='tdtema' style='text-align: center;'>" + item.tema + "</td><td id='tdcompromiso' style='text-align: center;'>" + item.compromiso + "</td><td id='tdfecha' style='text-align: center;'>" + item.fecha + "</td></tr>");
                                                 $("#message-nr").css("display", "none");
                                                 $('.preloader').remove();
                                                 $('.infinite-scroll-preloader').remove();

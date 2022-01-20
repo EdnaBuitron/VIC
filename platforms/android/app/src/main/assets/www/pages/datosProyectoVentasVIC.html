@@ -136,7 +136,7 @@
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="V1" value="Visita presencial">
                                     <label class="FWM-span-form" for="inlineRadio1">Visita presencial</label>
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="V2" value="Llamada virtual">
-                                    <label class="FWM-span-form" for="inlineRadio2">Llamada virtual</label>
+                                    <label class="FWM-span-form" for="inlineRadio2">Conferencia virtual</label>
                                 </div>
                                 <br>
                             <span class="span FWM-span-form">Foto de evidencia:</span>
@@ -150,8 +150,19 @@
                                     <input type="hidden" id="imagenC" name="imagenC"/>
                                 </div>
                                 <br>
-                                <span class="span FWM-span-form">Actividad realizada: </span>
-                                    <select class="FWM-input" name="niveles" id="niveles" disabled="disabled" hidden>
+                                <span class="span FWM-span-form">Acciones a realizar en visita: </span>
+                                 <select class="FWM-input" name="acciones" id="accione">
+                                        <option value="a" selected>Selecciona accion</option>
+                                        <option value="0">1.-Censo</option>
+                                        <option value="1">2.-Presentacion</option>
+                                        <option value="2">3.-LIP</option>
+                                        <option value="3">4.-Demostracion</option>
+                                        <option value="4">5.-Prueba</option>
+                                        <option value="4">6.-Cotizaciion/propuesta</option>
+                                        <option value="5">7.-Negociacion</option>
+                                        <option value="4">8.-Cierre/convenio</option>
+                                    </select>
+                                    <select class="FWM-input" name="niveles" id="niveles" disabled="disabled" hidden style="display:none;">
                                         <option value="a" selected>Selecciona un nivel</option>
                                         <option value="0">Nivel 0 - Proyecto sin ningún avace</option>
                                         <option value="1">Nivel 1 - Se cuenta con datos como contacto, puesto, y tel/mail</option>
@@ -159,7 +170,7 @@
                                         <option value="3">Nivel 3 - En presentación y/o LIP</option>
                                         <option value="4">Nivel 4 - Propuesta/Negociación/Pruebas</option>
                                         <option value="5">Nivel 5 - Cierre y alta de datos</option>
-                                    </select>
+                                    </select> 
                                 <br>
                                 <span class="span FWM-span-form">Pendiente del vendedor en el nivel: </span>
                                 <textarea class ="FWM-input" id="pendiente_vendor" name="pendiente_vendor"  cols="30" rows="10" style="margin-top: 15px;"></textarea>

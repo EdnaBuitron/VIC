@@ -125,7 +125,26 @@
                             <span>
                                   <input class ="FWM-input" id="fecha" type="date" value="" placeholder="Selecciona una fecha..."/>
                             </span>
-
+                            <div class="block-title FWM-subtitulo">Minuta :</div>  
+                            <div class="card data-table">
+                                <div class="infinite-scroll-content">
+                                    <table id="VentasBennetts_content">
+                                        <thead>
+                                            <tr>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Accion</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Titulo</th>
+                                               <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Compromiso</th>
+                                                <th class="numeric-cell" style="text-align: center;background-color: #063E7F;color: white;">Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <!-- <div class="sentencia preloader color-grey infinite-scroll-preloader"></div> -->
+                                    <div id="message-nr" style="width: 100%;text-align: center;font-family: 'ITC Avant Garde Gothic', sans-serif;font-size: 16px;" style="display: none;">
+                                        <p>Sin registros</p>
+                                    </div>
+                                </div>
+                            </div>
 
                         </form>
 
@@ -165,7 +184,7 @@ return {
                                 } else {
                                     for(var i = 0; i< length; i++){
                                         var item = results.rows.item(i);
-                                        $("#VentasBennetts_content").append("<tr id='fila"+ item.id_minuta +"'><td id='tdaccion'><a href='#' onclick='eliminarFilaVIC("+ item.id_minuta +",2);' style='border: none; outline:none;'><img src='img/borrar.png' width='30px' /></a></td><td id='tdtema' style='text-align: center;'>" + item.tema + "</td><td id='tdfoto'><img src='"+item.foto+"' width='60px' style='margin-top: 4px;'/></td><td id='tdcompromiso' style='text-align: center;'>" + item.compromiso + "</td><td id='tdfecha' style='text-align: center;'>" + item.fecha + "</td></tr>");
+                                        $("#VentasBennetts_content").append("<tr id='fila"+ item.id_minuta +"'><td id='tdaccion'><a href='#' onclick='eliminarFilaVIC("+ item.id_minuta +",2);' style='border: none; outline:none;'><img src='img/borrar.png' width='30px' /></a></td><td id='tdtema' style='text-align: center;'>" + item.tema + "</td><td id='tdcompromiso' style='text-align: center;'>" + item.compromiso + "</td><td id='tdfecha' style='text-align: center;'>" + item.fecha + "</td></tr>");
                                         $("#message-nr").css("display", "none");
                                     }
                                 }
