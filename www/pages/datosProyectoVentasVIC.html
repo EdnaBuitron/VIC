@@ -151,7 +151,8 @@
                                 </div>
                                 <br>
                                 <span class="span FWM-span-form">Acciones a realizar en visita: </span>
-                                 <select class="FWM-input" name="acciones" id="accione">
+                                <div id = "actividad"></div>
+                                 <!-- <select class="FWM-input" name="acciones" id="accione">
                                         <option value="a" selected>Selecciona accion</option>
                                         <option value="0">1.-Censo</option>
                                         <option value="1">2.-Presentacion</option>
@@ -161,7 +162,7 @@
                                         <option value="4">6.-Cotizaciion/propuesta</option>
                                         <option value="5">7.-Negociacion</option>
                                         <option value="4">8.-Cierre/convenio</option>
-                                    </select>
+                                    </select> -->
                                     <select class="FWM-input" name="niveles" id="niveles" disabled="disabled" hidden style="display:none;">
                                         <option value="a" selected>Selecciona un nivel</option>
                                         <option value="0">Nivel 0 - Proyecto sin ningún avace</option>
@@ -219,6 +220,24 @@
                 var id_cedula = localStorage.getItem("IdCedula");
                 var smartSelect = app.smartSelect.get('.smart-select');
                 var proyecto = localStorage.getItem("IdProyecto");
+                var Nom = 'Gestion-SE-VIC';
+            app.request.get(cordova.file.dataDirectory + "jsons/"+Nom+".json", function (data) {
+                //console.log('DATA',data);
+                var content = JSON.parse(data);
+                var ACT = content[2];
+                var html ="";
+                html += `<select class='FWM-input' id='segmento' aria-label='Default select example'><option value='a' selected>Selecciona una actividad...</option>`;
+               
+                for(let i = 0; i < ACT.length ;i++){
+                    if(ACT[i].usuario == id_usuario){
+                    html +=  ` <option value="${ACT[i].id_actividad}">${ACT[i].actividad}</option>`;
+                    }
+                }
+                html += `</select>`;
+                // console.log(html);
+                $('#actividad').append(html); 
+               
+            });
 
                 databaseHandler.db.transaction(
                     function(tx){

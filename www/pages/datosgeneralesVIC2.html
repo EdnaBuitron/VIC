@@ -236,7 +236,9 @@ return {
                 html += `<select class='FWM-input' id='segmento' aria-label='Default select example'><option value='a' selected>Selecciona un segmento...</option>`;
                
                 for(let i = 0; i < SEG.length ;i++){
-                    html +=  ` <option value="${SEG[i].Orden}">${SEG[i].nombre_segmento}</option>`;
+                    if(id_usuario == SEG[i].usuario ){
+                    html +=  ` <option value="${SEG[i].id_segmento}">${SEG[i].nombre_segmento}</option>`;
+                    }
                 }
                 html += `</select>`;
                 // console.log(html);
@@ -245,7 +247,9 @@ return {
                 html1 += `<select class='FWM-input' id='estrategia' aria-label='Default select example'><option value='a' selected>Selecciona un Estrategia...</option>`;
                
                 for(let i = 0; i < EST.length ;i++){
+                    if(EST[i].usuario == id_usuario){
                     html1 +=  ` <option value="${EST[i].id_estrategia}">${EST[i].estrategia}</option>`;
+                }
                 }
                 html1 += `</select>`;
                 // console.log(html);
